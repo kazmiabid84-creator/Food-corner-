@@ -1,0 +1,257 @@
+/* =====================================================================
+   Food Corner - style.css  |  EXTERNAL CSS (Lab Task 2A)
+   Every lab requirement is labelled with a comment so it is easy
+   to explain in the demo.
+   ===================================================================== */
+
+/* ---------- Task 2E.1 INHERITANCE: base font + color on body ----------
+   Everything inside <body> inherits these unless overridden. */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;  /* Fonts: font-family */
+  font-size: 16px;                             /* Fonts: font-size */
+  color: #333333;                              /* Colors: HEX */
+  line-height: 1.6;                            /* Text: line-height */
+  margin: 0;
+  padding: 0;
+  background-color: #fff8f0;                    /* Background: background-color */
+}
+
+/* ---------- Task 2B: GROUPING selector ---------- */
+h1, h2, h3 {
+  font-weight: 700;                            /* Fonts: font-weight */
+  color: #b3392b;
+  margin: 0 0 12px 0;
+}
+
+/* ---------- Task 2B: ELEMENT selectors ---------- */
+p   { margin: 0 0 12px 0; }
+img { max-width: 100%; display: block; }
+ul  { margin: 0; padding: 0; }
+
+/* ---------- Task 2B: ID selector ---------- */
+#main-header {
+  background-color: rgb(179, 57, 43);           /* Colors: RGB */
+  color: white;                                /* Colors: NAMED */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#main-header h1 {
+  color: white;                                /* 2E.2 override inherited color */
+  font-style: italic;                          /* Fonts: font-style */
+  margin: 0;
+}
+
+/* ---------- Task 2B: DESCENDANT selector ---------- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+nav a {
+  color: white;
+  text-decoration: none;                       /* Text: text-decoration */
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  display: inline-block;                       /* Task 8: display: inline-block */
+  transition: background 0.25s, color 0.25s;
+}
+/* ---------- Task 2C: :hover on nav links ---------- */
+nav a:hover {
+  background-color: white;
+  color: rgb(179, 57, 43);
+}
+
+/* ---------- Task 8: display:none (element stays in DOM, not rendered) ---------- */
+.promo-banner { display: none; }
+
+/* ================= WELCOME SECTION ================= */
+.welcome {
+  text-align: center;                          /* Text: text-align */
+  padding: 70px 20px;
+  color: white;
+  background-color: #b3392b;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Ctext x='35' y='85' font-size='60'%3E%F0%9F%8D%95%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;                   /* Background: background-repeat */
+  background-position: center;                 /* Background: background-position */
+  background-size: 140px;                      /* Background: background-size */
+}
+.welcome-text {
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  font-size: 1.1em;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;                       /* Task 8: inline-block */
+  background-color: #e0a800;
+  color: #3a2500;
+  font-weight: 700;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
+}
+.explore-btn:hover {
+  background-color: white;                     /* :hover */
+  color: #b3392b;
+}
+
+/* ================= MENU SECTION ================= */
+.menu-section { padding: 50px 20px; text-align: center; }
+.menu-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* ---------- Task 4: BOX MODEL on food cards ----------
+   content -> padding -> border -> margin */
+.menu-card {
+  width: 240px;                                /* width */
+  min-height: 400px;                           /* height constraint */
+  padding: 20px;                               /* padding */
+  border: 2px solid #e3d5c3;                   /* border */
+  margin: 10px;                                /* margin */
+  box-sizing: border-box;                      /* box-sizing */
+  background-color: #ffffff;
+  border-radius: 14px;                         /* Task 9: border-radius */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);  /* Task 9: box-shadow */
+  display: block;                              /* Task 8: display: block */
+  text-align: center;
+  transition: transform 0.25s;
+}
+.menu-card:hover { transform: translateY(-6px); }
+
+/* ---------- Task 2C: :first-child — first card looks different ---------- */
+.menu-grid .menu-card:first-child {
+  border: 3px solid #e0a800;
+  background-color: #fffbe6;
+}
+
+/* ---------- Task 2B: DESCENDANT + CLASS selectors ---------- */
+.menu-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+.menu-card h3 { color: #b3392b; }
+.menu-card .card-desc { font-size: 0.92em; color: #666; min-height: 60px; }
+
+/* ---------- Task 2E.3 SPECIFICITY demo ----------
+   .card-price            -> specificity (0,1,0) -> blue
+   .menu-section .card-price -> specificity (0,2,0) -> WINS -> green.
+   Higher specificity beats lower, no matter the order. */
+.card-price {
+  color: blue;
+  font-weight: 700;
+  font-size: 1.25em;
+}
+.menu-section .card-price { color: #1a7a1a; }
+
+/* ---------- Task 2C: :hover on Order Now buttons ---------- */
+.order-btn {
+  display: inline-block;
+  background-color: #b3392b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.order-btn:hover { background-color: #1a7a1a; }
+
+/* ---------- Task 2D: PSEUDO-ELEMENTS ---------- */
+.section-title::before { content: "\1F37D\FE0F  "; }  /* ::before */
+.section-title::after  { content: "  \1F37D\FE0F"; }  /* ::after */
+
+/* ================= ABOUT ================= */
+.about-section { padding: 50px 20px; text-align: center; background-color: #fdf1e3; }
+
+/* ---------- Task 6: WIDTH / HEIGHT + CONSTRAINTS ---------- */
+.constraint-box {
+  width: 80%;                                  /* width */
+  max-width: 700px;                            /* max-width */
+  min-width: 280px;                            /* min-width */
+  min-height: 120px;                           /* min-height */
+  max-height: 500px;                           /* max-height */
+  margin: 0 auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  text-align: left;
+}
+/* ---------- Task 8: display:inline ---------- */
+.highlight {
+  display: inline;
+  background-color: #ffe08a;
+  padding: 0 4px;
+}
+
+/* ================= LAB DEMOS ================= */
+.lab-demos { padding: 50px 20px; max-width: 800px; margin: 0 auto; text-align: center; }
+.lab-demos h3 { margin-top: 30px; color: #b3392b; }
+
+/* ---------- Task 2E.4 CASCADE / SOURCE ORDER demo ----------
+   Same selector, same specificity -> the LATER rule wins. */
+.demo-cascade {
+  background-color: #ffe08a;   /* this loses */
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.demo-cascade {
+  background-color: #ffb703;   /* this wins (comes later) */
+}
+
+/* ================= CONTACT ================= */
+.contact-section { padding: 50px 20px; text-align: center; background-color: #fdf1e3; }
+.contact-form {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+.contact-form label { font-weight: 600; display: block; margin: 12px 0 4px 0; }
+
+/* ---------- Task 2B: ATTRIBUTE selector ---------- */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1em;
+}
+input[type="email"] { border-color: #b3392b; }  /* attribute selector override */
+input:focus, textarea:focus { outline: none; border-color: #e0a800; }
+.submit-btn { margin-top: 18px; width: 100%; }
+.submit-btn:hover { background-color: #b3392b; color: white; }
+
+/* ================= FOOTER ================= */
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;                          /* Text: text-align */
+  padding: 18px;
+}
+footer p { margin: 0; }

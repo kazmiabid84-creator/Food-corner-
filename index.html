@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Corner - Fresh & Delicious</title>
+  <!-- EXTERNAL CSS (Lab Task 2A) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- INTERNAL CSS (Lab Task 2A): used meaningfully for the lab demo boxes,
+       so the main stylesheet stays focused on the real website design -->
+  <style>
+    .collapse-demo { background: #fff3cd; border: 2px dashed #e0a800; padding: 10px; margin: 20px 0; }
+    .collapse-box1 { background: #ffdddd; padding: 15px; margin-bottom: 40px; }
+    .collapse-box2 { background: #ddffdd; padding: 15px; margin-top: 40px; }
+    .overflow-row { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .overflow-box { width: 220px; height: 120px; border: 2px solid #333; padding: 8px; background: #ffffff; text-align: left; }
+    .ov-visible { overflow: visible; }
+    .ov-hidden  { overflow: hidden; }
+    .ov-scroll  { overflow: scroll; }
+    .demo-note { font-style: italic; color: #555; }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header id="main-header">
+    <h1>Food Corner</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- display:none demo (Lab Task 8): hidden promo, still in the DOM -->
+  <div class="promo-banner">Secret deal: 50% off today only!</div>
+
+  <!-- ================= WELCOME ================= -->
+  <section id="home" class="welcome">
+    <!-- INLINE CSS (Lab Task 2A): one-off styling for this heading -->
+    <h2 class="section-title" style="color: #ffffff; text-shadow: 2px 2px 5px rgba(0,0,0,0.6);">Welcome to Food Corner</h2>
+    <p class="welcome-text">Fresh ingredients, bold flavours and meals made with love —
+      from cheesy pizzas to juicy burgers, we serve happiness on every plate.
+      Come hungry, leave happy!</p>
+    <a href="#menu" class="btn explore-btn">Explore Menu</a>
+  </section>
+
+  <!-- ================= MENU ================= -->
+  <section id="menu" class="menu-section">
+    <h2 class="section-title">Our Menu</h2>
+    <div class="menu-grid">
+
+      <article class="menu-card">
+        <img src="images/pizza.svg" alt="Cheesy Pizza">
+        <h3>Cheesy Pizza</h3>
+        <p class="card-desc">Wood-fired crust, rich tomato sauce and a double layer of mozzarella.</p>
+        <p class="card-price">$8.99</p>
+        <button class="order-btn" type="button">Order Now</button>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/burger.svg" alt="Classic Burger">
+        <h3>Classic Burger</h3>
+        <p class="card-desc">Grilled beef patty, cheddar, lettuce and our secret sauce in a soft bun.</p>
+        <p class="card-price">$6.49</p>
+        <button class="order-btn" type="button">Order Now</button>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/sandwich.svg" alt="Club Sandwich">
+        <h3>Club Sandwich</h3>
+        <p class="card-desc">Triple-stacked with chicken, egg, cheese and crispy fresh veggies.</p>
+        <p class="card-price">$5.29</p>
+        <button class="order-btn" type="button">Order Now</button>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/pasta.svg" alt="Creamy Pasta">
+        <h3>Creamy Pasta</h3>
+        <p class="card-desc">Penne tossed in creamy alfredo sauce with herbs and parmesan.</p>
+        <p class="card-price">$7.19</p>
+        <button class="order-btn" type="button">Order Now</button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="about-section">
+    <h2 class="section-title">About Us</h2>
+    <!-- Width / height constraints demo (Lab Task 6) -->
+    <div class="constraint-box">
+      <p>Food Corner started in 2020 with one simple goal: serve fresh, affordable food
+        that tastes like home. Every dish is prepared daily with hand-picked ingredients,
+        and our chefs never compromise on quality. Whether you dine in or order online,
+        we promise a meal you will remember. <span class="highlight">Try our chef's special pizza</span>
+        — it is the talk of the town!</p>
+    </div>
+  </section>
+
+  <!-- ================= CSS LAB DEMOS ================= -->
+  <section class="lab-demos">
+    <h2 class="section-title">CSS Concepts in Action</h2>
+
+    <h3>Margin Collapsing (Task 5)</h3>
+    <div class="collapse-demo">
+      <div class="collapse-box1">Box 1 — margin-bottom: 40px</div>
+      <div class="collapse-box2">Box 2 — margin-top: 40px</div>
+    </div>
+    <p class="demo-note">The gap between the boxes is 40px, not 80px — the vertical margins collapsed into one.</p>
+
+    <h3>Overflow (Task 7)</h3>
+    <div class="overflow-row">
+      <div class="overflow-box ov-visible"><strong>overflow: visible</strong> — Extra text spills outside the box and stays visible. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+      <div class="overflow-box ov-hidden"><strong>overflow: hidden</strong> — Extra text is clipped and cannot be seen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+      <div class="overflow-box ov-scroll"><strong>overflow: scroll</strong> — Scrollbars appear so all text is reachable. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+    </div>
+
+    <h3>Cascade / Source Order (Task 2E)</h3>
+    <div class="demo-cascade">Both CSS rules have the same specificity, so the LATER rule wins — this box is orange, not yellow.</div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+    <form class="contact-form" action="#" method="post">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
+
+      <button type="submit" class="btn submit-btn">Submit</button>
+    </form>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>&copy; 2026 Food Corner</p>
+  </footer>
+
+</body>
+</html>
